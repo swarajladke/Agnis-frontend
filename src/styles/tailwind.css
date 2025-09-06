@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #0F0F23; /* rich dark purple-blue */
+    --color-foreground: #E8E8E8; /* high-contrast light gray */
+    --color-border: rgba(0, 212, 255, 0.2); /* neon blue with opacity */
+    --color-input: #16213E; /* elevated surface color */
+    --color-ring: #00D4FF; /* energizing neon blue */
+    
+    /* Card Colors */
+    --color-card: #16213E; /* elevated surface color */
+    --color-card-foreground: #E8E8E8; /* high-contrast light gray */
+    
+    /* Popover Colors */
+    --color-popover: #16213E; /* elevated surface color */
+    --color-popover-foreground: #E8E8E8; /* high-contrast light gray */
+    
+    /* Muted Colors */
+    --color-muted: #1A1A2E; /* deep navy */
+    --color-muted-foreground: #A0A0A0; /* muted gray */
+    
+    /* Primary Colors */
+    --color-primary: #00D4FF; /* energizing neon blue */
+    --color-primary-foreground: #0F0F23; /* rich dark purple-blue */
+    
+    /* Secondary Colors */
+    --color-secondary: #1A1A2E; /* deep navy */
+    --color-secondary-foreground: #E8E8E8; /* high-contrast light gray */
+    
+    /* Destructive Colors */
+    --color-destructive: #FF4757; /* clear red */
+    --color-destructive-foreground: #E8E8E8; /* high-contrast light gray */
+    
+    /* Accent Colors */
+    --color-accent: #FF6B6B; /* warm coral */
+    --color-accent-foreground: #E8E8E8; /* high-contrast light gray */
+    
+    /* Success Colors */
+    --color-success: #00FF88; /* bright green */
+    --color-success-foreground: #0F0F23; /* rich dark purple-blue */
+    
+    /* Warning Colors */
+    --color-warning: #FFB800; /* amber */
+    --color-warning-foreground: #0F0F23; /* rich dark purple-blue */
+    
+    /* Error Colors */
+    --color-error: #FF4757; /* clear red */
+    --color-error-foreground: #E8E8E8; /* high-contrast light gray */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glow-effect {
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-effect:hover {
+    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.25);
+  }
+
+  .glow-border {
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+
+  .micro-interaction {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease;
+  }
+
+  .micro-interaction:hover {
+    transform: scale(1.02);
+  }
+
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .skeleton-pulse {
+    animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .stagger-fade-in {
+    animation: stagger-fade-in 0.6s ease-out forwards;
+  }
+
+  @keyframes stagger-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
